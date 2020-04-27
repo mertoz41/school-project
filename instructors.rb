@@ -10,4 +10,9 @@ class Instructor
         StudentInstructor.new(student, self)
     end
 
+    def students
+        si = StudentInstructor.all.select {|si| si.instructor == self}
+        si.map {|si| si.student}
+    end
+
 end

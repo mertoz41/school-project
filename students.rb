@@ -6,4 +6,13 @@ class Student
         @name = name      
     end
 
+    def add_instructor(instructor)
+        StudentInstructor.new(self, instructor)
+    end
+
+    def instructors
+        si = StudentInstructor.all.select {|si| si.student == self}
+        si.map {|si| si.instructor}
+    end
+
 end
