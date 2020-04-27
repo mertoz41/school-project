@@ -1,9 +1,17 @@
 class Student
 
-    attr_reader :name
+    attr_reader :name, :school
 
-    def initialize(name)
-        @name = name      
+    @@all = []
+
+    def initialize(name, school)
+        @name = name  
+        @school = school   
+        @@all << self 
+    end
+
+    def self.all
+        @@all
     end
 
     def add_instructor(instructor)
